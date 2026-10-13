@@ -1,440 +1,312 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#02030f">
-  <title>Bryan Nuñez | Enlaces y contacto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --accent: #38bdf8;
-      --accent-rgb: 56, 189, 248;
-      --bg: #02030f;
-      --card: #0d1226;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bryan Núñez | Enlaces & Contacto</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 15px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(circle at 5% 10%, #153c30, transparent 30%),
+        radial-gradient(circle at 95% 90%, #3a151b, transparent 30%),
+        #050615;
+}
+
+.tema {
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-align: center;
+    color: #ff8585;
+}
+
+.selector {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 298px;
+    padding: 12px;
+    margin-bottom: 13px;
+    border: 1px solid #30364a;
+    border-radius: 13px;
+    background: #0e1424;
+}
+
+.selector button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+}
+
+.selector button.activo {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.rojo { background: #e52942; }
+.verde { background: #18a878; }
+.azul { background: #168fd0; }
+.morado { background: #9c4de2; }
+.amarillo { background: #f5b927; color: #222 !important; }
+
+.tarjeta {
+    width: 100%;
+    max-width: 298px;
+    padding: 22px 21px;
+    text-align: center;
+    border: 1px solid #30394b;
+    border-radius: 17px;
+    background: rgba(14, 20, 36, 0.97);
+    box-shadow: 0 15px 45px #0005;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 12px;
+    color: #ff9a9a;
+    background: #401c29;
+    border: 1px solid #77303c;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.foto-marco {
+    width: 100px;
+    height: 100px;
+    padding: 3px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff354b, #ffb44c);
+    box-shadow: 0 0 18px #ff354b35;
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #101626;
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.descripcion {
+    color: #b8c1d2;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.enlaces {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.enlace {
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    color: white;
+    text-align: left;
+    text-decoration: none;
+    border: 1px solid #ffffff12;
+    border-radius: 12px;
+    transition: transform .2s, filter .2s;
+}
+
+.enlace:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+}
+
+.icono {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: #ffffff19;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.info {
+    flex: 1;
+}
+
+.nombre {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 3px;
+}
+
+.detalle {
+    display: block;
+    font-size: 9px;
+    opacity: .8;
+    overflow-wrap: anywhere;
+}
+
+.flecha {
+    font-size: 20px;
+}
+
+.tiktok { background: #161b27; }
+.instagram {
+    background: linear-gradient(110deg, #8134af, #dd2a7b, #f58529);
+}
+.facebook { background: #2051b8; }
+
+.pie {
+    color: #798399;
+    font-size: 9px;
+    margin-top: 18px;
+}
+
+.pie span {
+    color: #ff7272;
+}
+
+@media (max-width: 350px) {
+    .tarjeta {
+        padding: 20px 15px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { min-height: 100%; }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 28px 16px 48px;
-      color: var(--text);
-      font-family: "Poppins", system-ui, sans-serif;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 0% 10%, rgba(var(--accent-rgb), .22), transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(var(--accent-rgb), .18), transparent 45%);
-      background-attachment: fixed;
+    .selector {
+        gap: 10px;
     }
-
-    #petals {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .petal {
-      position: absolute;
-      border-radius: 50% 0 50% 50%;
-      opacity: .6;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      from { transform: translateY(-10vh) rotate(0deg); }
-      to { transform: translateY(110vh) rotate(360deg); }
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 360px;
-    }
-
-    .theme-title {
-      margin-bottom: 8px;
-      text-align: center;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .themes {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 14px;
-      background: rgba(13, 18, 38, .8);
-    }
-
-    .themes button {
-      width: 28px;
-      height: 28px;
-      border: 0;
-      border-radius: 7px;
-      color: #fff;
-      font: 700 11px "Poppins", sans-serif;
-      cursor: pointer;
-      outline-offset: 3px;
-      transition: transform .15s ease;
-    }
-
-    .themes button[aria-pressed="true"] {
-      outline: 2px solid #fff;
-      transform: scale(1.12);
-    }
-
-    .themes button:focus-visible,
-    .copy:focus-visible {
-      outline: 2px solid #fff;
-      outline-offset: 3px;
-    }
-
-    .card {
-      margin-top: 14px;
-      padding: 24px 20px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      border-radius: 20px;
-      background: var(--card);
-      text-align: center;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 4px 11px;
-      border: 1px solid rgba(var(--accent-rgb), .4);
-      border-radius: 99px;
-      background: rgba(var(--accent-rgb), .12);
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 600;
-    }
-
-    .avatar {
-      display: grid;
-      width: 96px;
-      height: 96px;
-      margin: 16px auto 10px;
-      place-items: center;
-      border: 3px solid var(--accent);
-      border-radius: 50%;
-      background-color: #1e293b;
-      background-position: center;
-      background-size: cover;
-      box-shadow: 0 0 22px rgba(var(--accent-rgb), .35);
-      font-size: 34px;
-      font-weight: 700;
-    }
-
-    h1 { font-size: 22px; font-weight: 700; overflow-wrap: anywhere; }
-
-    .bio {
-      margin: 7px 0 18px;
-      color: #cbd5e1;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1.6;
-    }
-
-    .links { display: flex; flex-direction: column; gap: 10px; }
-    .row { display: flex; gap: 8px; }
-
-    .link {
-      display: flex;
-      flex: 1;
-      min-width: 0;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 12px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 12px;
-      color: #fff;
-      text-align: left;
-      text-decoration: none;
-      transition: transform .15s ease, filter .15s ease;
-    }
-
-    .link:hover { transform: translateY(-2px); filter: brightness(1.12); }
-    .link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
-
-    .icon {
-      display: grid;
-      flex: none;
-      width: 32px;
-      height: 32px;
-      place-items: center;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, .15);
-    }
-
-    .icon svg { width: 17px; height: 17px; fill: #fff; }
-    .txt { flex: 1; min-width: 0; line-height: 1.3; }
-    .txt b { display: block; font-size: 12px; font-weight: 700; }
-    .txt small { display: block; overflow-wrap: anywhere; font-size: 9px; opacity: .8; }
-    .chev { width: 13px; height: 13px; flex: none; stroke: #fff; fill: none; stroke-width: 2; opacity: .7; }
-
-    .whatsapp { background: #0f8a63; }
-    .phone { background: #1d4ed8; }
-    .tiktok { background: #0d1226; }
-    .instagram { background: linear-gradient(90deg, #7e22ce, #be185d 55%, #d97706); }
-    .facebook { background: #1e40af; }
-
-    .copy {
-      display: grid;
-      flex: none;
-      width: 48px;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, .12);
-      border-radius: 12px;
-      background: #0d1226;
-      color: #fff;
-      cursor: pointer;
-    }
-
-    .copy:hover { background: #1a2142; }
-    .copy svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; }
-
-    #toast {
-      position: fixed;
-      z-index: 5;
-      bottom: 22px;
-      left: 50%;
-      max-width: calc(100vw - 32px);
-      padding: 9px 16px;
-      border-radius: 99px;
-      background: var(--accent);
-      color: #04101c;
-      font-size: 12px;
-      font-weight: 700;
-      opacity: 0;
-      pointer-events: none;
-      transform: translate(-50%, 20px);
-      transition: opacity .25s ease, transform .25s ease;
-    }
-
-    #toast.show { opacity: 1; transform: translate(-50%, 0); }
-    footer { margin-top: 18px; color: var(--muted); font-size: 10px; }
-
-    @media (max-width: 360px) {
-      .card { padding: 22px 14px; }
-      .themes { gap: 10px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
-  <div id="petals" aria-hidden="true"></div>
 
-  <main>
-    <p class="theme-title" id="themeTitle"></p>
-    <div class="themes" id="themes" role="group" aria-label="Elegir tema"></div>
+<div class="tema">
+    🍎 TEMA: MICHAEL MANZANITA
+</div>
 
-    <section class="card" aria-label="Perfil y enlaces de contacto">
-      <span class="badge" id="badge"></span>
-      <div class="avatar" id="avatar" aria-label="Foto o inicial del perfil"></div>
-      <h1 id="name"></h1>
-      <p class="bio" id="bio"></p>
-      <div class="links" id="links"></div>
-      <footer id="footer"></footer>
+<nav class="selector">
+    <button class="rojo activo" data-color="#e52942">一</button>
+    <button class="verde" data-color="#18a878">二</button>
+    <button class="azul" data-color="#168fd0">三</button>
+    <button class="morado" data-color="#9c4de2">四</button>
+    <button class="amarillo" data-color="#f5b927">五</button>
+</nav>
+
+<main class="tarjeta">
+
+    <div class="etiqueta">
+        🍎 Michael Manzanita
+    </div>
+
+    <div class="foto-marco">
+        <img
+            class="foto"
+            src="image(1).png"
+            alt="Foto de perfil de Bryan Núñez"
+        >
+    </div>
+
+    <h1>Bryan Núñez</h1>
+
+    <p class="descripcion">
+        ¡Bienvenido a mi perfil! 🍎<br>
+        Sígueme en mis redes sociales.
+    </p>
+
+    <section class="enlaces">
+
+        <a class="enlace tiktok"
+           href="https://www.tiktok.com/@bryanxd137"
+           target="_blank" rel="noopener noreferrer">
+            <span class="icono">♪</span>
+            <span class="info">
+                <span class="nombre">TikTok</span>
+                <span class="detalle">@bryanxd137</span>
+            </span>
+            <span class="flecha">›</span>
+        </a>
+
+        <a class="enlace instagram"
+           href="https://instagram.com/bryannunez85?rpxt=NjY1bWZjZWZqYjhm"
+           target="_blank" rel="noopener noreferrer">
+            <span class="icono">◎</span>
+            <span class="info">
+                <span class="nombre">Instagram</span>
+                <span class="detalle">@bryannunez85</span>
+            </span>
+            <span class="flecha">›</span>
+        </a>
+
+        <a class="enlace facebook"
+           href="https://www.facebook.com/share/19A7BFsgLt/?mibextid=wwXIfr"
+           target="_blank" rel="noopener noreferrer">
+            <span class="icono">f</span>
+            <span class="info">
+                <span class="nombre">Facebook</span>
+                <span class="detalle">Mi perfil oficial</span>
+            </span>
+            <span class="flecha">›</span>
+        </a>
+
     </section>
-  </main>
 
-  <div id="toast" role="status" aria-live="polite"></div>
+    <div class="pie">
+        Hecho con <span>♥</span> por Bryan
+    </div>
 
-  <script>
-    /* ============ EDITA SOLO ESTE BLOQUE ============ */
-    const PERFIL = {
-      nombre: "Bryan Nuñez",
-      bio: "¡Bienvenido a mi perfil! Contáctame directamente o encuéntrame en mis redes sociales.",
-      // Escribe "foto.jpg" si colocas la imagen en la misma carpeta del HTML.
-      // También puedes usar aquí la URL directa de una imagen. Déjalo vacío para mostrar la inicial.
-      foto: "",
-      whatsapp: "https://wa.me/593968771025?text=Hola%20Abel,%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n",
-      telefono: "+593 96 877 1025",
-      tiktok: "https://www.tiktok.com/@bryanxd137",
-      instagram: "https://instagram.com/bryannunez85?rpxt=NjY1bWZjZWZqYjhm",
-      instagramUser: "@bryannunez85",
-      facebook: "https://www.facebook.com/share/19A7BFsgLt/?mibextid=wwXIfr",
-      pie: "© 2026 Bryan Nuñez"
-    };
+</main>
 
-    const TEMAS = [
-      { color: "#facc15", rgb: "250,204,21",  simbolo: "一", badge: "★ Tema 1" },
-      { color: "#a855f7", rgb: "168,85,247", simbolo: "二", badge: "★ Tema 2" },
-      { color: "#38bdf8", rgb: "56,189,248",  simbolo: "三", badge: "♥ Tema 3" },
-      { color: "#10b981", rgb: "16,185,129",  simbolo: "四", badge: "♣ Tema 4" },
-      { color: "#f43f5e", rgb: "244,63,94",   simbolo: "五", badge: "✿ Tema 5" }
-    ];
+<script>
+// Cambiar el color del borde de la foto
+const botones = document.querySelectorAll(".selector button");
+const marco = document.querySelector(".foto-marco");
 
-    const TITULO_TEMAS = "✿ TEMA: Michael Jackson";
-    const TEMA_INICIAL = 2;
-    /* ================================================ */
+botones.forEach(boton => {
+    boton.addEventListener("click", () => {
+        botones.forEach(b => b.classList.remove("activo"));
+        boton.classList.add("activo");
 
-    const iconos = {
-      whatsapp: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .6l-.4.6c-.1.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg>',
-      telefono: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>',
-      tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-3.2v13.3a2.8 2.8 0 1 1-2-2.7V9.3a6 6 0 1 0 5.2 5.9V8.8a7.5 7.5 0 0 0 4.3 1.4V7a4.3 4.3 0 0 1-4.3-5z"/></svg>',
-      instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 5.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>',
-      facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8V6.5c0-.7.2-1 1.2-1H17V2h-2.7C11.2 2 10 3.8 10 6.2V8H8v3.5h2V22h4V11.5h2.7L17 8z"/></svg>'
-    };
+        const color = boton.dataset.color;
 
-    const flecha = '<svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
-
-    function crearEnlace(clase, icono, titulo, subtitulo, href, abrirNuevaPestana = false) {
-      const enlace = document.createElement("a");
-      enlace.className = `link ${clase}`;
-      enlace.href = href;
-      if (abrirNuevaPestana) {
-        enlace.target = "_blank";
-        enlace.rel = "noopener noreferrer";
-      }
-      enlace.innerHTML = `<span class="icon">${icono}</span><span class="txt"><b></b><small></small></span>${flecha}`;
-      enlace.querySelector("b").textContent = titulo;
-      enlace.querySelector("small").textContent = subtitulo;
-      return enlace;
-    }
-
-    document.title = `${PERFIL.nombre} | Enlaces y contacto`;
-    document.getElementById("name").textContent = PERFIL.nombre;
-    document.getElementById("bio").textContent = PERFIL.bio;
-    document.getElementById("footer").textContent = PERFIL.pie;
-    document.getElementById("themeTitle").textContent = TITULO_TEMAS;
-
-    const avatar = document.getElementById("avatar");
-    if (PERFIL.foto.trim()) {
-      avatar.style.backgroundImage = `url("${PERFIL.foto}")`;
-      avatar.textContent = "";
-    } else {
-      avatar.textContent = PERFIL.nombre.trim().charAt(0).toUpperCase() || "?";
-    }
-
-    const telefonoLimpio = PERFIL.telefono.replace(/[^\d+]/g, "");
-    const contenedorEnlaces = document.getElementById("links");
-
-    contenedorEnlaces.appendChild(
-      crearEnlace("whatsapp", iconos.whatsapp, "WhatsApp", PERFIL.telefono, PERFIL.whatsapp, true)
-    );
-
-    const filaTelefono = document.createElement("div");
-    filaTelefono.className = "row";
-    filaTelefono.appendChild(
-      crearEnlace("phone", iconos.telefono, "Llamada directa", PERFIL.telefono, `tel:${telefonoLimpio}`)
-    );
-
-    const botonCopiar = document.createElement("button");
-    botonCopiar.className = "copy";
-    botonCopiar.id = "copyBtn";
-    botonCopiar.type = "button";
-    botonCopiar.setAttribute("aria-label", "Copiar número de teléfono");
-    botonCopiar.title = "Copiar número";
-    botonCopiar.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>';
-    filaTelefono.appendChild(botonCopiar);
-    contenedorEnlaces.appendChild(filaTelefono);
-
-    contenedorEnlaces.appendChild(
-      crearEnlace("tiktok", iconos.tiktok, "TikTok", "Sígueme para contenido", PERFIL.tiktok, true)
-    );
-    contenedorEnlaces.appendChild(
-      crearEnlace("instagram", iconos.instagram, "Instagram", PERFIL.instagramUser, PERFIL.instagram, true)
-    );
-    contenedorEnlaces.appendChild(
-      crearEnlace("facebook", iconos.facebook, "Facebook", "Perfil oficial", PERFIL.facebook, true)
-    );
-
-    const toast = document.getElementById("toast");
-    let toastTimer;
-    function aviso(mensaje) {
-      toast.textContent = mensaje;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
-    }
-
-    botonCopiar.addEventListener("click", async () => {
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(PERFIL.telefono);
-        } else {
-          const campo = document.createElement("textarea");
-          campo.value = PERFIL.telefono;
-          campo.setAttribute("readonly", "");
-          campo.style.position = "absolute";
-          campo.style.left = "-9999px";
-          document.body.appendChild(campo);
-          campo.select();
-          const copiado = document.execCommand("copy");
-          campo.remove();
-          if (!copiado) throw new Error("No se pudo copiar");
-        }
-        aviso("Número copiado");
-      } catch {
-        aviso("No se pudo copiar el número");
-      }
+        marco.style.background =
+            `linear-gradient(135deg, ${color}, #ffb44c)`;
     });
+});
+</script>
 
-    const contenedorPetalos = document.getElementById("petals");
-    function crearPetalos(color) {
-      contenedorPetalos.replaceChildren();
-      for (let i = 0; i < 22; i++) {
-        const petalo = document.createElement("span");
-        const tamano = 4 + Math.random() * 7;
-        petalo.className = "petal";
-        petalo.style.cssText = `left:${Math.random() * 100}%;width:${tamano}px;height:${tamano}px;background:${color};animation-duration:${9 + Math.random() * 14}s;animation-delay:${-Math.random() * 20}s;`;
-        contenedorPetalos.appendChild(petalo);
-      }
-    }
-
-    const contenedorTemas = document.getElementById("themes");
-    TEMAS.forEach((tema, indice) => {
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.textContent = tema.simbolo;
-      boton.style.backgroundColor = tema.color;
-      boton.setAttribute("aria-label", `Tema ${indice + 1}`);
-      boton.setAttribute("aria-pressed", "false");
-      boton.addEventListener("click", () => aplicarTema(indice));
-      contenedorTemas.appendChild(boton);
-    });
-
-    function aplicarTema(indice) {
-      const tema = TEMAS[indice];
-      if (!tema) return;
-      const raiz = document.documentElement.style;
-      raiz.setProperty("--accent", tema.color);
-      raiz.setProperty("--accent-rgb", tema.rgb);
-      document.getElementById("badge").textContent = tema.badge;
-
-      [...contenedorTemas.children].forEach((boton, posicion) => {
-        boton.setAttribute("aria-pressed", String(posicion === indice));
-      });
-
-      crearPetalos(tema.color);
-      try { localStorage.setItem("tema", String(indice)); } catch { /* El almacenamiento puede estar bloqueado. */ }
-    }
-
-    let temaGuardado = TEMA_INICIAL;
-    try {
-      const valorGuardado = Number.parseInt(localStorage.getItem("tema"), 10);
-      if (Number.isInteger(valorGuardado) && TEMAS[valorGuardado]) temaGuardado = valorGuardado;
-    } catch { /* Se usa el tema inicial si el almacenamiento no está disponible. */ }
-
-    aplicarTema(temaGuardado);
-  </script>
 </body>
 </html>
